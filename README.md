@@ -1,5 +1,4 @@
-# K6-
-A Comprehensive Performance Testing Study Using k6: Tool Justification, Methodology, Data Analysis, and Recommendations
+# A Comprehensive Performance Testing Study Using K6: Tool Justification, Methodology, Data Analysis, and Recommendations
 
 # 1. Introduction
 
@@ -98,15 +97,15 @@ A JavaScript file was created defining the endpoint and logic of the test.
 
 Commands such as k6 run script.js were executed.
 
-5. Raw Output Collection:
+4. Raw Output Collection:
    
 Console logs were captured for analysis (shown in the screenshots provided).
 
-7. Results Aggregation:
+5. Results Aggregation:
    
 Metrics such as average latency, percentiles, throughput, data transfer, and execution rate were analyzed.
 
-9. Bottleneck Detection:
+6. Bottleneck Detection:
     
 Outliers, failed requests, and high percentiles were examined to determine system weaknesses.
 
@@ -116,12 +115,19 @@ Outliers, failed requests, and high percentiles were examined to determine syste
 The following section documents the results from three executed test types:
 
 - Load Test
+  
+  <img width="700" height="396" alt="image" src="https://github.com/user-attachments/assets/7f6c38fe-4571-417c-83b5-235a0e514e9d" />
 
 - Smoke Test
 
+  <img width="700" height="483" alt="image" src="https://github.com/user-attachments/assets/a9bd18b3-1b9e-4a77-8dd6-4b31647dc8ad" />
+
 - Spike Test
 
-Raw k6 outputs (from your screenshots) are summarized and translated into readable tables and explanations.
+  <img width="700" height="390" alt="image" src="https://github.com/user-attachments/assets/e8b8ebec-dcb4-468f-ba9e-8489a1817ef9" />
+
+
+Raw k6 outputs are summarized and translated into readable tables and explanations.
 
 4.1 Load Test
 
@@ -129,7 +135,7 @@ Raw k6 outputs (from your screenshots) are summarized and translated into readab
 
 To evaluate how the system behaves under a sustained, expected level of traffic.
 
-4.1.2 Key Raw Metrics (from screenshot)
+4.1.2 Key Raw Metrics
 
 | Metric                       | Value           |
 | ---------------------------- | --------------- |
@@ -255,11 +261,11 @@ The system may be protected by:
 Overall, the system does not gracefully handle sudden traffic bursts.
 
 # 5. Data Visualization (Graphs/Charts)
-<img width="2000" height="1200" alt="avg_latency" src="https://github.com/user-attachments/assets/9b93a98a-0947-46f6-baf5-4e67f8693611" />
+<img width="700" height="1200" alt="avg_latency" src="https://github.com/user-attachments/assets/9b93a98a-0947-46f6-baf5-4e67f8693611" />
 
-<img width="2000" height="1200" alt="error_rate" src="https://github.com/user-attachments/assets/e182fd8e-4d7a-486d-a0ce-8f3c02df9037" />
+<img width="700" height="1200" alt="error_rate" src="https://github.com/user-attachments/assets/e182fd8e-4d7a-486d-a0ce-8f3c02df9037" />
 
-<img width="2000" height="1200" alt="throughput" src="https://github.com/user-attachments/assets/be7dc89c-bed0-404a-8c03-4e3d6bc45d27" />
+<img width="700" height="1200" alt="throughput" src="https://github.com/user-attachments/assets/be7dc89c-bed0-404a-8c03-4e3d6bc45d27" />
 
 # 6. Interpretation of Results and Identified Bottlenecks
 
@@ -350,11 +356,18 @@ More granular root-cause analysis would require:
 
 - Server logs during test execution
 
-# 7. Recommendations and Final Conclusions
+  
+# 7. Video Presentation
+
+A detailed walkthrough of the test configuration, execution, and result analysis has been recorded.
+
+https://youtu.be/zC0tQJCqOB4
+
+# 8. Recommendations and Conclusion
 
 Based on the analysis, here are actionable recommendations.
 
-7.1 Scaling and Architecture Improvements
+8.1 Scaling and Architecture Improvements
 
 1. Implement Auto-Scaling
 
@@ -392,7 +405,7 @@ Look into:
 
 If the system is throttling due to limited DB or HTTP connection pools, increase the pool limits.
 
-7.2 Code-Level Optimization
+8.2 Code-Level Optimization
 
 - Replace blocking calls with async operations
 
@@ -402,7 +415,7 @@ If the system is throttling due to limited DB or HTTP connection pools, increase
 
 - Reduce payload sizes
 
-7.3 Improve Spike Handling / Rate Limiting
+8.3 Improve Spike Handling / Rate Limiting
 
 1. Implement Graceful Degradation
 
@@ -424,7 +437,7 @@ Before spike windows, ensure:
 
 - DB connection provisioning
 
-7.4 Observability Enhancements
+8.4 Observability Enhancements
 
 Integrate:
 
@@ -436,7 +449,7 @@ Integrate:
 
 APM tools will help pinpoint internal bottlenecks.
 
-# 8. Final Conclusion
+8.5 Conclusion
 
 This performance testing study using k6 demonstrates that the system is stable under normal operating conditions but struggles significantly when exposed to sudden, extreme traffic surges.
 
@@ -445,6 +458,3 @@ This performance testing study using k6 demonstrates that the system is stable u
 | **Smoke Test** | Excellent       | Low       | 0%     | Low (expected)    |
 | **Load Test**  | Very Good       | Low       | 0.02%  | Moderate          |
 | **Spike Test** | Critical Issues | Very High | 94%    | Severely Degraded |
-
-
-https://youtu.be/zC0tQJCqOB4
